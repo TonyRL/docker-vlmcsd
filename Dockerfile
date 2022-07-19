@@ -1,4 +1,4 @@
-FROM alpine:3.16.1 AS builder
+FROM alpine:3.16 AS builder
 
 RUN apk add --no-cache git make build-base
 
@@ -8,7 +8,7 @@ WORKDIR /root/vlmcsd
 RUN cd /root/vlmcsd && \
     make -j$((`nproc`+1))
 
-FROM lsiobase/alpine:3.16-version-b612671e AS release
+FROM lsiobase/alpine:3.16 AS release
 
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
 
