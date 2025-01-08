@@ -1,4 +1,4 @@
-FROM alpine:3.21.0 AS builder
+FROM alpine:3.21.1 AS builder
 
 RUN apk add --no-cache git make build-base
 
