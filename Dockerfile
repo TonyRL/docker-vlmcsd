@@ -8,7 +8,7 @@ WORKDIR /root/vlmcsd
 RUN cd /root/vlmcsd && \
     make -j$((`nproc`+1))
 
-FROM lsiobase/alpine:3.22 AS release
+FROM lsiobase/alpine:3.23 AS release
 
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
 
